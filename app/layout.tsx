@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import DashboardWrapper from "./dashboardWrapper";
-import ReduxWrapper from "@/redux/ReduxWrapper";
-import Sidebar from "@/components/sidebar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,13 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-          <ReduxWrapper>
-          <DashboardWrapper>  
-
-            {children}
-            </DashboardWrapper>  
-
-            </ReduxWrapper>
+          <DashboardWrapper>{children}</DashboardWrapper>
       </body>
       
       

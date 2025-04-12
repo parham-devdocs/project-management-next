@@ -14,8 +14,7 @@ html,body,#root,.app{
   @apply text-gray-900
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 @theme {
