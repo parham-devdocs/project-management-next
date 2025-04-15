@@ -2,6 +2,8 @@ import { Menu, Moon, Search, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import {initialStateTypes, setIsDarkMode, setIsSidebarCollapsed  } from "../redux/store";
+import supabase from "@/utils/databaseClient";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const dispatch=useDispatch()
