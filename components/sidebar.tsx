@@ -43,7 +43,7 @@ function toggleSidebar() {
 async function fetchProjects() {
     const { data, error } = await supabase
       .from("Project")
-      .select("name"); // Only selecting the `name` field
+      .select("name,id"); // Only selecting the `name` field
   
     if (error) {
       console.error('Error fetching projects:', error);
@@ -93,6 +93,7 @@ async function fetchProjects() {
             {showProjects && (
                 <>
 {projects.map((project,index)=>{
+    console.log(project)
     return <SidebarLink  key={index} href={`/projects/${project.id}`} label={project.name}  Icon={BriefcaseIcon}  />
 })}
                 
@@ -102,7 +103,7 @@ async function fetchProjects() {
 <span className="">Priority</span>
 {showPriority? <ChevronUp/> : <ChevronDown/>}</button>
 {showPriority && priorityIcons.map((priority,index)=>{
-    return <SidebarLink href={priority.href} Icon={priority.Icon} label={priority.label}/>
+    return <SidebarLink key={index} href={priority.href} Icon={priority.Icon} label={priority.label}/>
 }) }
         </div>
     )

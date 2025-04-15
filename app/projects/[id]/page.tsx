@@ -1,4 +1,6 @@
-import { use, useState } from "react"
+"use client"
+
+import {  useState } from "react"
 import ProjectHeader from "@/app/projects/ProjectHeader";
 type Props ={
     params:{id:string}
@@ -11,7 +13,7 @@ export default function Page({params}:Props) {
     const [isModalNewTaskOpen,setIsModalNewTaskOpen]=useState(false)
     return <div>
         <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab}/>
-        {activeTab==="Board" && (<Board/>)}
+        {/* {activeTab==="Board" && (<Board/>)} */}
     </div>
 
 }

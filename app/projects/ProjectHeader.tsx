@@ -1,3 +1,4 @@
+import { useState } from "react";
 
  type Props = {
     activeTab:string
@@ -5,7 +6,10 @@
   }
 
 export default function ProjectHeader({activeTab,setActiveTab}:Props) {
+  const [isModalNewProjectOpen,setIsModalNewProjectOpen]=useState(false)
     return (
-      <div>hello</div>
+      <div className=" px-4 xl:px-6">
+        
+      </div>
     )
 }
