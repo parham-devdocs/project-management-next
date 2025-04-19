@@ -19,8 +19,8 @@ export interface Task {
     status?:Status ; // text
     priority?: Priority; // text
     tags?: string; // text
-    startDate?: Date ; // timestamp with time zone (timestamptz, nullable)
-    dueDate?: Date ; // timestamp with time zone (timestamptz, nullable)
+    startdate?: Date ; // timestamp with time zone (timestamptz, nullable)
+    duedate?: Date ; // timestamp with time zone (timestamptz, nullable)
     points?: number; // integer (int4)
     projectid: number; // integer (int4)
     authoruserid: number; // integer (int4)
@@ -28,7 +28,7 @@ export interface Task {
     author?:User
     assignee?:User
     comments?:Comment[]
-    attachments:Attachment[]
+    Attachment?:Attachment
   }
 
   export interface ProjectTeam{
@@ -41,7 +41,7 @@ export interface Task {
     userId:number
     cognitoId:string
     username:string
-    profilePictureUrl:string|null
+    profilepictureurl:string|null
     teamId:number
   }
 
@@ -75,8 +75,8 @@ export interface Task {
 
   export interface Attachment{
     id:number
-    fileUrl:string
-    fileName:string
-    taskId:number
+    fileurl:string
+    filename:string
+    taskid:number
     uploadedByID:number
   }

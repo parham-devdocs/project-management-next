@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
@@ -21,6 +22,8 @@
     "next": "15.3.0",
     "numeral": "^2.0.6",
     "react": "^19.0.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "recharts": "^2.15.2",
@@ -39,6 +42,7 @@
     "supabase": "^2.20.12",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^4",
+    "tailwindcss-pseudo-elements": "^2.0.0",
     "typescript": "^5"
   }
 }
