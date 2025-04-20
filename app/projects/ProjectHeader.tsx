@@ -45,5 +45,5 @@ type TabButtonPtops={
 
 const TabButton=({name,icon,setActiveTab,activeTab}:TabButtonPtops)=>{
   const isActive=activeTab ===name
-return <button className={`flex gap-2 items-center cursor-pointer font-bold transition-colors duration-300 relative ${isActive ? "after:absolute after:rounded-3xl after:bottom-0 after:-mb-2 after:w-full after:h-1 after:bg-blue-500 dark:after:bg-white dark:text-white text-blue-500":"text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-white"}`}>{icon} {name}</button>
+return <button onClick={()=>setActiveTab(name)} className={`flex gap-2 items-center cursor-pointer font-bold transition-colors duration-300 relative ${isActive ? "after:absolute after:rounded-3xl after:bottom-0 after:-mb-2 after:w-full after:h-1 after:bg-blue-500 dark:after:bg-white dark:text-white text-blue-500":"text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-white"}`}>{icon} {name}</button>
 }
