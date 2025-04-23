@@ -10,7 +10,6 @@ import Image from "next/image";
 const baseStyle = "inline-block px-3 py-1 text-sm font-bold rounded-full mr-2";
 export default function TaskPage({ id, setIsModalOpen }: { id: string; setIsModalOpen: (open: boolean) => void }) {
     const [task, setTask] = useState<TaskType[] | null>(null);
-    const [attachment, setAttachment] = useState<Attachment | null | undefined>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 const taskStatus=["Not Started","In Progress","Under Review" , "Completed"]
 async function fetchData() {
@@ -31,7 +30,7 @@ async function fetchData() {
       return;
   }
   setTask(tasks);
-  setAttachment(task && task[0]?.Attachment ? task[0]?.Attachment : null)}
+}
  
     async function moveTask({ id, status }: { id: number; status: string }) {
         try {
@@ -74,7 +73,7 @@ async function fetchData() {
     }
   }}>
 <div className=" grid grid-cols-1 gap-4 p-4 md:grid-cols-2 xl:grid-cols-4">
-    {taskStatus.map(status=><TaskColumn  key={status} status={status} tasks={task} moveTask={()=>moveTask} setIsModalNewTaskOpen={setIsModalOpen} attachment={attachment  }/>)}
+    {taskStatus.map(status=><TaskColumn  key={status} status={status} tasks={task} moveTask={()=>moveTask} setIsModalNewTaskOpen={setIsModalOpen} />)}
 </div>
 </DndContext>
    
@@ -91,10 +90,9 @@ type TaskColumnProps={
     tasks:TaskType[]
     moveTask:(taskId:number,toStatus:string)=>void
     setIsModalNewTaskOpen:(isOpen:boolean)=>void
-    attachment:any
 }
 
-function TaskColumn({status,tasks,moveTask,setIsModalNewTaskOpen,attachment}:TaskColumnProps) {
+function TaskColumn({status,tasks,moveTask,setIsModalNewTaskOpen}:TaskColumnProps) {
   const { isOver, setNodeRef } = useDroppable({id: `column-${status}`,  data: { columnStatus: status },   });    
     const statusCount=tasks.filter((task)=>task.status===status).length
       const statusColor:any={"To Do":"#2563EB","Work In Progress":"#059669","Under Review":"#D97706","Completed":"#000000"}
@@ -116,7 +114,6 @@ function TaskColumn({status,tasks,moveTask,setIsModalNewTaskOpen,attachment}:Tas
         <Task
             key={t.id}
             task={t}
-            attachment={attachment } // Provide a default value
             
         />
     );
@@ -155,7 +152,7 @@ const PriorityTag = ({ priority }:any ) => {
   );
 };
 
-const Task = ({ task, attachment }: { task: TaskType; attachment: Attachment }) => {
+const Task = ({ task }: { task: TaskType }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: `task-${task.id}`, 
     data: { taskId: task.id }, 
