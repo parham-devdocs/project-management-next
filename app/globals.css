@@ -34,3 +34,18 @@ html,body,#root,.app{
   --color-blue-primary: #0275ff;
   --color-stroke-dark: #2d3135;
 }
+
+
+._34SS0:nth-of-type(odd) {
+  @apply dark:bg-black dark:text-white 
+}
+
+._3_ygE{
+  @apply table dark:text-white text-black border-[1px] dark:border-white border-gray-200 }
+  ._CZjuD{
+    @apply dark:bg-black bg-white overflow-x-hidden
+  }
+  ._3eULf{
+    @apply dark:bg-black bg-white 
+
+  }

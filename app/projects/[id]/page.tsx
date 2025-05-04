@@ -5,6 +5,7 @@ import ProjectHeader from "@/app/projects/ProjectHeader";
 import BoardView from "@/components/BoardView";
 import ListView from "@/components/ListView";
 import TimeLine from "@/components/TimeLine";
+import Table from "@/components/Table";
 type Props ={
     params:{id:string}
 
@@ -20,6 +21,7 @@ export default function Page({params}:Props) {
         {activeTab==="Board" && (<BoardView setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}
         {activeTab==="List" && (<ListView setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}
         {activeTab==="Timeline" && (<TimeLine setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}
+        {activeTab==="Table" && (<Table setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}
 
 
     </div>
