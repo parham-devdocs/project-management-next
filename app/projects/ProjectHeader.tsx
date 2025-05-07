@@ -1,5 +1,6 @@
 import Hedaer from "@/components/Header";
-import { Clock, Filter, FilterIcon, GitBranch, Grid3X3, List, Table } from "lucide-react";
+import ModalNewProject from "@/components/Modal";
+import { Clock, Filter, FilterIcon, GitBranch, Grid3X3, List, PlusIcon, PlusSquare, Table } from "lucide-react";
 import { ReactNode, useState } from "react";
 
  type Props = {
@@ -11,15 +12,24 @@ export default function ProjectHeader({activeTab,setActiveTab}:Props) {
   const [isModalNewProjectOpen,setIsModalNewProjectOpen]=useState(false)
     return (
       <div className=" px-4 xl:px-6">
-        <Hedaer  name="project Design Development"/>
+        <ModalNewProject isOpen={isModalNewProjectOpen} onClose={()=>{setIsModalNewProjectOpen(false)}} name="ss" children/>
+
+        
+          <div className=" flex justify-between items-center ">
+
+        <Hedaer  name="project Design Development" buttonComponent={<button onClick={()=>setIsModalNewProjectOpen(true)} className="bg-blue-600 flex items-center gap-2 hover:bg-blue-800 dark:hover:bg-gray-800 cursor-pointer font-bold dark:bg-gray-700 text-white rounded-[5px] py-2 px-3 whitespace-nowrap">
+ <PlusSquare size={15}/> New Boards
+</button>}/>
+        
+        </div>
 <div className=" flex items-center gap-5 flex-wrap-reverse justify-between w-full">
-  
-<div className=" flex  gap-5 ">
+  <div className=" flex  gap-5 ">
           <TabButton name="Board" icon={<Grid3X3/>} setActiveTab={setActiveTab} activeTab={activeTab}/>
           <TabButton name="List" icon={<List/>} setActiveTab={setActiveTab} activeTab={activeTab}/>
           <TabButton name="Timeline" icon={<Clock/>} setActiveTab={setActiveTab} activeTab={activeTab}/>
           <TabButton name="Table" icon={<Table/>} setActiveTab={setActiveTab} activeTab={activeTab}/>
         </div>
+
         <div className=" flex items-center gap-2">
     <button className=" text-gray-500 hover:text-gray-600 dark:text-neutral-500 dark:hover:text-gray-300 cursor-pointer">{<Filter size={20}/>}</button>
     <button className=" text-gray-500 hover:text-gray-600 dark:text-neutral-500 dark:hover:text-gray-300 cursor-pointer">{<GitBranch size={20}/>}</button>
