@@ -16,12 +16,8 @@ const months = [
 export default function TimeLine({ id, setIsModalOpen }: { id: string; setIsModalOpen: (open: boolean) => void }) {
     const [task, setTask] = useState<TaskType[] | null>(null);
     const [errorMessage,setErrorMessage]=useState<PostgrestError | string>()
-    const isDarkMode=useSelector(state=>state)
     const [loading, setLoading] = useState<boolean>(false);
-    const [displayOptions,setDisplayOptions]=useState<DisplayOption>({
-        viewMode:ViewMode.Month,
-        locale:"en-US"
-    })
+     
     async function fetchData() {
         setLoading(true)
         const { data: tasks, error }: { data: any | null; error: PostgrestError | null } =
@@ -44,6 +40,7 @@ export default function TimeLine({ id, setIsModalOpen }: { id: string; setIsModa
         }
         setLoading(false)
         setTask(tasks);
+        console.log(tasks)
     }
       useEffect(()=>{
         fetchData()

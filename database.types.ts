@@ -1,11 +1,11 @@
 // Task.ts
-enum Status{
+export enum Status{
     ToDo="To Do",
     WorkInProgress="Work In Progress",
     UnderReview="Under Review",
     Completed="Complete"
 }
-enum Priority{
+export enum Priority{
     Urgent="Urgent",
     High="High",
     Medium="Medium",

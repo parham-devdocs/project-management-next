@@ -28,6 +28,7 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.2.0",
+    "react-toastify": "^11.0.5",
     "recharts": "^2.15.2",
     "redux-persist": "^6.0.0",
     "smart-webcomponents-react": "^22.0.0",

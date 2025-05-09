@@ -12,7 +12,7 @@ export default function SelectComponent({ name, data }: { name: string; data: st
         id={name}
         name={name}
       >
-        <option value="" disabled selected>
+        <option value="" disabled defaultValue={"Select The Month"}>
           Select The Month
         </option>
         {data.map((item) => (

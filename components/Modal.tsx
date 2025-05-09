@@ -1,7 +1,6 @@
 import  { ReactNode } from "react"
 import ReactDOM from "react-dom";
 import Header from "./Header";
-import { CrossIcon, LucideCross } from "lucide-react";
 type Props={
 children:ReactNode
 isOpen:boolean

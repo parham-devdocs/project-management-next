@@ -1,5 +1,5 @@
 import Hedaer from "@/components/Header";
-import ModalNewProject from "@/components/Modal";
+import ModalNewProject from "@/components/ModalNewProject";
 import { Clock, Filter, FilterIcon, GitBranch, Grid3X3, List, PlusIcon, PlusSquare, Table } from "lucide-react";
 import { ReactNode, useState } from "react";
 
@@ -12,7 +12,7 @@ export default function ProjectHeader({activeTab,setActiveTab}:Props) {
   const [isModalNewProjectOpen,setIsModalNewProjectOpen]=useState(false)
     return (
       <div className=" px-4 xl:px-6">
-        <ModalNewProject isOpen={isModalNewProjectOpen} onClose={()=>{setIsModalNewProjectOpen(false)}} name="ss" children/>
+        <ModalNewProject isOpen={isModalNewProjectOpen} onclose={()=>{setIsModalNewProjectOpen(false);console.log("closed")}}/>
 
         
           <div className=" flex justify-between items-center ">
