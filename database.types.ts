@@ -38,11 +38,11 @@ export interface Task {
   }
 
   export interface User{
-    userId:number
+    userid:number
     cognitoId:string
     username:string
     profilepictureurl:string|null
-    teamId:number
+    teamid:number
   }
 
   export interface Project{
