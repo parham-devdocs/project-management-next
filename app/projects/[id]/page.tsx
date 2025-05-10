@@ -17,7 +17,7 @@ export default function Page({params}:Props) {
     const [isModalNewTaskOpen,setIsModalNewTaskOpen]=useState(false)
 
     return <div>
-        <ModalNewTask isOpen={isModalNewTaskOpen} onclose={()=>{setIsModalNewTaskOpen(false)}}/>
+        <ModalNewTask isOpen={isModalNewTaskOpen} onclose={()=>{setIsModalNewTaskOpen(false)}} id={parseInt(params.id)}/>
         <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab}/>
         {activeTab==="Board" && (<BoardView setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}
         {activeTab==="List" && (<ListView setIsModalOpen={setIsModalNewTaskOpen} id={params.id}/>)}

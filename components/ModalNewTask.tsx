@@ -7,9 +7,10 @@ import { Priority, Status } from "@/database.types";
 type Props={
     isOpen:boolean
     onclose:()=>void
+    id:number
 }
 
-export default function ModalNewTask({isOpen,onclose}:Props) {
+export default function ModalNewTask({isOpen,onclose,id}:Props) {
     const [taskName,setTaskName]=useState("")
     const [description,setDescription]=useState("")
     const [status,setStatus]=useState<Status>(Status.ToDo)
@@ -25,9 +26,9 @@ export default function ModalNewTask({isOpen,onclose}:Props) {
     const notifySuccess = () => toast("successfully admitted");
   
   async  function handleSubmit() {
-        if (!taskName) return 
+        if (!taskName || !authorUserid) return 
         console.log("why twice ?")
-    const {error,data}=  await  supabase.from("Task").upsert([{title:taskName,description,startdate,duedate,priority,tags,authoruserid:parseInt(authorUserid),assigneduserid:parseInt(assignedUserid)}])
+    const {error,data}=  await  supabase.from("Task").upsert([{title:taskName,projectid:id,description,startdate,duedate,priority,tags,authoruserid:parseInt(authorUserid),assigneduserid:parseInt(assignedUserid)}])
     
     if (error) {
         setErrorMMessage(error.message)
@@ -41,6 +42,7 @@ export default function ModalNewTask({isOpen,onclose}:Props) {
     setTags("")
     setStartdate("")
     setDuedate("")
+    setDescription("")
     setAuthorUserid("")
 setAssignedUserid("")
     }
@@ -48,7 +50,7 @@ setAssignedUserid("")
 
     const inputStyle=` w-full rounded border border-gray-300 p-2 shadow-sm dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white dark:focus:outline-none`
 const formISValid=()=>{
-    return taskName
+    return taskName && authorUserid
 }
     return( <>
      <Modal isOpen={isOpen} onClose={()=>{onclose} } name="Create New Task"   >

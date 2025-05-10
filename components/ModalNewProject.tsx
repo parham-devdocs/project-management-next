@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 type Props={
     isOpen:boolean
     onclose:()=>void
+   
 }
 
 export default function ModalNewProject({isOpen,onclose}:Props) {

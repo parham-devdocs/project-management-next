@@ -1,5 +1,4 @@
-import { useSelector } from "react-redux";
-import { Gantt, Task, EventOption, StylingOption, ViewMode, DisplayOption } from 'gantt-task-react';
+import { Gantt, Task } from 'gantt-task-react';
 import "gantt-task-react/dist/index.css";
 import { useEffect, useMemo, useState } from "react";
 import { Task as TaskType } from "../database.types";
